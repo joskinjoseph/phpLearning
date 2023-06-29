@@ -14,20 +14,31 @@
     </h1>
     <?php
         $books = [
-            "Music and Cultural Heritage of the Yorubas",
-            "Harvest of Corruption",
-            "Scale and Speed"
+            [
+               'name'=> "Music and Cultural Heritage of the Yorubas",
+               'author'=> "Dr. Ajenifuja",
+              'publishUrl'=>  'http://www.jjjjdghs.com'
+            ],
+            [
+                'name'=>  "Harvest of Corruption",
+                'author'=>  "William Shakespare",
+                'publishUrl'=> "http://www.jjjjdghs.com"
+            ],
+            [
+                'name'=> "Scale and Speed",
+                'author'=> "Prof. Akinbomi",
+                'publishUrl'=> "http://www.jjjjdghs.com"
+            ],
         ];
     ?>
-    <ul>
-        <?php foreach($books as $book) {
-            echo "<li>{$book}</li>";
-        }
-        ?>
-    </ul>
+    
     <ul>
         <?php foreach ($books as $book) : ?>
-            <li><?= $book; ?> </li>
+            <li>
+                <a href="publishUrl">
+                    <?= $book['name']; ?>
+                </a>
+            </li>
             <?php endforeach; ?>
     </ul>
 </body>
