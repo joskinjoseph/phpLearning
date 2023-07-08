@@ -33,43 +33,40 @@
                 'name'=> "Becoming a Musician",
                 'author'=> "Prof. Akinbomi",
                 'publishUrl'=> "http://www.jjjjdghs.com",
-                'publishYear'=> 2015
+                'publishYear'=> 2055
             ],
         ];
-        function fliterByAuthor($books, $author) {
-            $filterBooks = [];
+
+
+    //    function filter($items, $fn) {
+    //         $filteredItems = [];
 
             
-            foreach ($books as $book) {
-                if ($book['author'] === $author) {
-                    $filterBooks[] = $book;
-                }
-            }
-            return $filterBooks;
-        }
+    //         foreach ($items as $item) {
+    //             if ($fn($item)) {
+    //                 $filteredItems[] = $item;
+    //             }
+    //         }
+    //         return $filteredItems;
+    //     };
+
+        $filterBooks =   array_filter ($books, function ($books) {
+            return $books['author'] ===  'Prof. Akinbomi';
+        });
     ?>
     
+   
     <ul>
-        <?php foreach (fliterByAuthor($books, 'William Shakespare') as $book) : ?>
+        <?php foreach ($filterBooks as $book) : ?>
             <li>
                 <a href="publishUrl">
                     <?= $book['name']; ?> 
                     ( <?= $book['publishYear']; ?>) - By <?= $book['author']; ?>
-                </a>
                 </a>
             </li>
             <?php endforeach; ?>
     </ul>
 
-    <ul>
-        <?php foreach (fliterByAuthor($books, 'Prof. Akinbomi') as $book) : ?>
-            <li>
-                <a href="publishUrl">
-                    <?= $book['name']; ?> 
-                    ( <?= $book['publishYear']; ?>) - By <?= $book['author']; ?>
-                </a>
-            </li>
-            <?php endforeach; ?>
-    </ul>
+   
 </body>
 </html>
