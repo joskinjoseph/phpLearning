@@ -8,10 +8,6 @@
     </style>
 </head>
 <body> 
-    <!-- Assignment -->
-<!-- Extend the book list from this episode's example to also include and display the release year immediately after the book's title. -->
-    <h1>
-      Recommended Books
     </h1>
     <?php
         $books = [
@@ -33,17 +29,45 @@
                 'publishUrl'=> "http://www.jjjjdghs.com",
                 'publishYear'=> 2023
             ],
+            [
+                'name'=> "Becoming a Musician",
+                'author'=> "Prof. Akinbomi",
+                'publishUrl'=> "http://www.jjjjdghs.com",
+                'publishYear'=> 2015
+            ],
         ];
+        function fliterByAuthor($books, $author) {
+            $filterBooks = [];
+
+            
+            foreach ($books as $book) {
+                if ($book['author'] === $author) {
+                    $filterBooks[] = $book;
+                }
+            }
+            return $filterBooks;
+        }
     ?>
     
     <ul>
-        <?php foreach ($books as $book) : ?>
+        <?php foreach (fliterByAuthor($books, 'William Shakespare') as $book) : ?>
             <li>
                 <a href="publishUrl">
                     <?= $book['name']; ?> 
-                    ( <?= $book['publishYear']; ?>)
+                    ( <?= $book['publishYear']; ?>) - By <?= $book['author']; ?>
                 </a>
-              
+                </a>
+            </li>
+            <?php endforeach; ?>
+    </ul>
+
+    <ul>
+        <?php foreach (fliterByAuthor($books, 'Prof. Akinbomi') as $book) : ?>
+            <li>
+                <a href="publishUrl">
+                    <?= $book['name']; ?> 
+                    ( <?= $book['publishYear']; ?>) - By <?= $book['author']; ?>
+                </a>
             </li>
             <?php endforeach; ?>
     </ul>
