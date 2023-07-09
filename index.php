@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEMO</title>
-
-    </style>
-</head>
-<body> 
-    //Creating my own Array and playing around with it....
-  <?php 
+<?php 
     $pupils = [
         [
             'name'=> 'Akin James',
@@ -59,72 +48,11 @@
             'genotype'=> 'AA',
             'studentLink'=> 'http://deyplay.com'
         ],
-        
+
     ];
 
     $filterPupils = array_filter($pupils, function ($pupil) {
         return $pupil['age'] <= 9;
     });
-   ?>
+    require "index.view.php";
 
-<?php
-        $books = [
-            [
-               'name'=> "Music and Cultural Heritage of the Yorubas",
-               'author'=> "Dr. Ajenifuja",
-              'publishUrl'=>  'http://www.jjjjdghs.com',
-              'publishYear'=> 2010
-            ],
-            [
-                'name'=>  "Harvest of Corruption",
-                'author'=>  "William Shakespare",
-                'publishUrl'=> "http://www.jjjjdghs.com",
-                'publishYear'=> 1999
-            ],
-            [
-                'name'=> "Scale and Speed",
-                'author'=> "Prof. Akinbomi",
-                'publishUrl'=> "http://www.jjjjdghs.com",
-                'publishYear'=> 2023
-            ],
-            [
-                'name'=> "Becoming a Musician",
-                'author'=> "Prof. Akinbomi",
-                'publishUrl'=> "http://www.jjjjdghs.com",
-                'publishYear'=> 2055
-            ],
-        ];
-        $filterBooks = array_filter($books, function ($book) {
-            return $book['author'] === 'Prof. Akinbomi';
-        })
-?>
-
-
-
-
-    <ul>
-        <?php foreach ($filterPupils as $pupil) : ?>
-            <li>
-                <a href="studentLink">
-                    <?= $pupil['name']; ?> 
-                    ( <?= $pupil['yearOfAdmin']; ?>) - Class <?= $pupil['class']; ?>
-                </a>
-
-            </li>
-            <?php endforeach; ?>
-    </ul>
-
-    <ul>
-        <?php foreach($filterBooks as $book) : ?>
-            <li>
-                <a href="publishYear">
-                    <?= $book['name']; ?>
-                    (<?= $book['publishYear']; ?>) -By <?= $book['author']; ?>
-                </a>
-            </li>
-            <?php endforeach; ?>
-    </ul>
-
-   
-</body>
-</html>
