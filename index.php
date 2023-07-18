@@ -2,27 +2,18 @@
 
     require 'function.php';
 
-    require 'router.php';
+    // require 'router.php';
 
-    //connect to our MySQL databass
+    // connect to our MySQL databass
    
+$dsn = "mysql:host=localhost;port=3306;dbname=myapp;charset=utf8mb4";
+   $pdo = new PDO($dsn, 'oluwadamilare', '12345@Oluwadamilare');
 
-    // class Person {
-    //     public $name;
-    //     public $age;
+   $pdo->prepare("select * from posts");
+   $statement->execute();
 
-    //     public function breathe () {
-    //         echo "breathing";
-    //     }
-    // }
+   $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-
-    // $person = new Person();
-
-
-    // $person->name = 'Joskin Joseph';
-
-    // $person-> age = 25;
-   
-   
-    // dd($person);
+   foreach ($post as $post) {
+    echo "<li>" . $post['title'] .  "</li>";
+   }
