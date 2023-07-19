@@ -4,7 +4,7 @@
 
     require 'Database.php';
 
-    // require 'router.php';
+    require 'router.php';
 
    $config = require('config.php');
     
@@ -16,7 +16,4 @@
     dd($posts);
 
 
-
-   foreach ($post as $post) {
-    echo "<li>" . $post['title'] .  "</li>";
-   }
+   
