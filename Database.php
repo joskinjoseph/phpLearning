@@ -1,30 +1,23 @@
 <?php
 
-class Database 
+class Database
+{
+    public $connection;
+    public function __construct($config, $username = 'oluwadamilare', $password = '12345@Oluwadamilare')
     {
-        public $connection;
 
-        public function __construct($config, $username = 'oluwadamilare', $password = '12345@Oluwadamilare') 
-        {
-            $dsn = 'mysql:' .http_build_query($config, '', ';');
+        $dsn = 'mysql:' . http_build_query($config, '', ';');
 
-
-
-            $this->connection = new PDO($dsn, $username, $password, [
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-            ]);
-        }
-
-        public function query($query) 
-        {
-           
-            $statement = $this->connection->prepare($query);
-
-            $statement->execute();
-
-            return $statement;
-            
-        }
+        $this->connection = new PDO($dsn, $username, $password, [
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]);
     }
+    public function querry($querry)
+    {
 
-    
+        $statement = $this->connection->prepare($querry);
+        $statement->execute();
+
+        return $statement;
+    }
+}
