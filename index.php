@@ -1,14 +1,16 @@
 <?php
 
 require 'function.php';
-
 require 'Database.php';
+require 'Response.php';
+
 require 'router.php';
 
-$id = $_GET['id'];
 
-$querry = "select * from notes where id = :id";
+// $id = $_GET['id'];
 
-$posts = $db->querry($querry, [':id' => $id])->fetchAll();
+// $querry = "select * from notes where id = :id";
 
-dd($posts);
+// $posts = $db->querry($querry, [':id' => $id])->fetchAll();
+
+// // dd($posts);

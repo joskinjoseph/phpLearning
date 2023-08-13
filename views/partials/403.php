@@ -2,12 +2,18 @@
 
 <?php require ('partials/nav.php') ?>
 
-<?php require ('partials/banner.php') ?>
+
+
+
 
 
   <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-      <p>Who you help</p>
+      <h1 class= "text-2xl foot-bold"> You are not authorized to acess this file.</h1>
+      <p class= "mt-4">
+        <a href="/" class= "text-blue underline">Go back home.</a>
+      </p>
+    
     </div>
   </main>
 
