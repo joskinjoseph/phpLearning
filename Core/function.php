@@ -21,3 +21,21 @@ function authorize($condition, $status = Response::FORBIDDEN)
         abort($status);
     }
 }
+
+function base_path($path)
+{
+    return BASE_PATH . $path;
+}
+
+function view($path, $attribute = [])
+{
+    extract($attribute);
+    
+    require base_path('views/' . $path);
+}
+
+
+function error_review() {
+    return error_reporting(E_ALL);
+   return ini_set('display_errors', 1);
+}

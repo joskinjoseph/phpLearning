@@ -1,23 +1,22 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+error_review();
 
-require 'Validator.php';
+require base_path('Validator.php');
 
-$config = require 'config.php';
+$config = require base_path('config.php');
 
 $db = new Database($config['database']);
 
-$heading = 'Create Note';
+
+    $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $error = [];
 
 
     if (! Validator::string($_POST['body'], 1, 1000)) {
-        $error['body'] = 'A body of no more than 1,000 characters is required';
+        $errors['body'] = 'A body of no more than 1,000 characters is required';
     }
 
   
@@ -33,4 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 }
 
-require 'views/note-create.view.php';
+view("notes/create.view.php", [
+    'heading' => 'Create Notes',
+    'errors' => $errors
+]);
+
+
