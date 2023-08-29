@@ -4,6 +4,10 @@ error_review();
 
 require base_path('Validator.php');
 
+use Core\Database;
+use core\Validator;
+
+
 $config = require base_path('config.php');
 
 $db = new Database($config['database']);
