@@ -1,24 +1,23 @@
 <?php
-
-
- namespace Core;
-
- use PDO;
+namespace Core;
+use PDO;
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 class Database
 {
     public $connection;
 
     public $statement;
+
     public function __construct($config, $username = 'oluwadamilare', $password = '12345@Oluwadamilare')
     {
 
-        $dsn = 'mysql:' . http_build_query($config, '', ';');
+        $dsn = "mysql:" . http_build_query($config, ' ', ';');
 
-        $this->connection = new PDO($dsn, $username, $password, [
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        ]);
+        $this->connection = new PDO($dsn, $username, $password);
     }
+
     public function query($query, $params = [])
     {
 
@@ -28,14 +27,13 @@ class Database
         return $this;
     }
 
+    public function get() {
+        return $this->statement->fetchAll();
+    }
+
     public function find()
     {
         return $this->statement->fetch();
-    }
-
-    public function get()
-    {
-        return $this->statement->fetchAll();
     }
 
     public function findOrFail()
@@ -45,7 +43,6 @@ class Database
         if (!$result) {
             abort();
         }
-
         return $result;
     }
 }

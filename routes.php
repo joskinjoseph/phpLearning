@@ -1,11 +1,11 @@
 <?php
 
 return [
-    '/' => 'controllers/index.php',
-    '/about' => 'controllers/about.php',
-    '/notes' => 'controllers/notes/index.php',
-    '/note' => 'controllers/notes/show.php',
-    '/note/create' => 'controllers/notes/create.php',
-    '/contact' => 'controllers/contact.php',
+    '/' => 'controller/index.php',
+    '/about' => 'controller/about.php',
+    '/notes' => 'controller/notes/index.php',
+    '/note' => 'controller/notes/show.php',
+    '/contact' => 'controller/contact.php',
+    '/notes/create' => 'controller/notes/create.php'
 
-  ];
+];

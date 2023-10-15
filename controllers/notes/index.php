@@ -1,22 +1,18 @@
 <?php
-
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
- use Core\Database;
-
+use Core\Database;
 $config = require base_path('config.php');
+$db = new Database($config['database']);
 
- $db = new Database($config['database']);
+$heading = 'Note';
+$currentUserId = 1;
 
+$note = $db->query('select * from notes where id = :id', [
+    'id' => $_GET['id'],
+])->findOrFail();
 
-$notes = $db->query('select * from notes where user_id = 1;')->get();
+authorize($note['user_id'] === $currentUserId);
 
-
-view("notes/index.view.php", [
-    'heading' => 'My Notes',
-    'notes' => $notes
+views('notes/show.view.php', [
+    'heading' => $heading,
+    'note' => $note
 ]);
-
-

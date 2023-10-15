@@ -1,5 +1,5 @@
 <?php
-
-view('index.view.php', [
-    'heading' => 'Contact Us',
+$heading = "Contact Us";
+views('index.view.php', [
+    'heading' => $heading,
 ]);

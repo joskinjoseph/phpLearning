@@ -1,5 +1,8 @@
 <?php
 
-view('index.view.php', [
-    'heading' => 'Home',
+
+$heading = "Home";
+
+views('index.view.php', [
+    'heading' => $heading = 'Home'
 ]);
