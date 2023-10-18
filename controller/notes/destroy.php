@@ -4,11 +4,13 @@ $config = require base_path('config.php');
 $db = new Database($config['database']);
 $heading = 'Note';
 $currentUserId = 1;
+
 $note = $db->query('select * from notes where id = :id', [
-    'id' => $_GET['id'],
+    'id' => $_POST['id'],
 ])->findOrFail();
 authorize($note['user_id'] === $currentUserId);
-views('notes/show.view.php', [
-    'heading' => $heading,
-    'note' => $note,
+$db->query('delete from notes where id = :id', [
+    'id' => $_GET['id'],
 ]);
+header('location: /notes');
+exit();
