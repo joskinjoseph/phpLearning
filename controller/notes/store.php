@@ -1,8 +1,8 @@
 <?php
 use Core\Validator;
+use Core\App;
 use Core\Database;
-$config = require base_path('config.php');
-$db = new Database($config['database']);
+$db = App::resolve(Database::class);
 $errors = [];
 if (! Validator::string($_POST['body'], 1, 1000)) {
     $errors['body'] = 'A body is required of not more than 1,000 characters is required';
