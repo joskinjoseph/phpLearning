@@ -38,10 +38,7 @@ if ($user) {
         'password' => password_hash($password, PASSWORD_DEFAULT ),
     ]);
 
-    $_SESSION['user'] = [
-        'email' => $email
-    ];
-
+    login($user);
     header('location: /');
     exit();
 }
