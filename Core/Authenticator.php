@@ -1,7 +1,5 @@
 <?php
-use Core\App;
-use Core\Database;
-use Core\Session;
+namespace Core;
 
 class Authenticator
 {
