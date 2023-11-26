@@ -1,13 +1,5 @@
-<?php require ('partials/head.php') ?>
-
-<?php require ('partials/nav.php') ?>
-
-<?php require ('partials/banner.php') ?>
-
-  <main>
-    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-      <p>Contact us through our email</p>
-    </div>
-  </main>
-
-  <?php require ('partials/footer.php') ?>   
+<?php require 'patials/head.php';?> 
+<?php require 'patials/nav.php';?>
+<?php require 'patials/header.php';?>
+<p>Contact us to know more</p>
+<?php require   'patials/footer.php';

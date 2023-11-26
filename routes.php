@@ -4,7 +4,7 @@ return [
     '/' => 'controllers/index.php',
     '/about' => 'controllers/about.php',
     '/contact' => 'controllers/contact.php',
-    '/notes' => 'controllers/notes.php',
-    '/note/create' => 'controllers/note-create.php',
-    '/note' => 'controllers/note.php',
+    '/tracks' => 'controllers/tracks.php',
+    '/track/create' => 'controllers/track-create.php',
+    '/track' => 'controllers/track.php',
   ];
