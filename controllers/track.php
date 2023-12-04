@@ -1,19 +1,18 @@
 <?php
 
-$config = require 'config.php';
+$config = require base_path('config.php');
 
 $db = new Database($config['database']);
 
 $heading = 'tracks';
 $currentUserId = 1;
 
-$track = $db->querry('select * from tracks where  id = :id', [
-   
+$track = $db->query('select * from artistes  where  id = :id', [
     'id' => $_GET['id']
-])->findOrFail();
+])->fetch();
 
 
 authorize($track ['user_id'] === $currentUserId);
 
 
-require "views/track.view.php";
+view ("tracks/show.view.php");

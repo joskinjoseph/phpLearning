@@ -1,5 +1,5 @@
-<?php require 'patials/head.php';?> 
-<?php require 'patials/nav.php';?>
-<?php require 'patials/header.php';?>
+<?php require 'partials/head.php';?> 
+<?php require 'partials/nav.php';?>
+<?php require 'partials/header.php';?>
   <p>Welcome to the Home Page</p> 
-    <?php require   'patials/footer.php';
+    <?php require   'partials/footer.php';

@@ -1,6 +1,6 @@
-<?php require 'views/patials/head.php';?> 
-<?php require 'views/patials/nav.php';?>
-<?php require 'views/patials/header.php';?>
+<?php require base_path('partials/head.php');?> 
+<?php require base_path('partials/nav.php');?>
+<?php require base_path('partials/header.php');?>
 
    <p>Create New Track</p>
    <form method="post" style="background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 300px;">
@@ -20,4 +20,7 @@
 
 
 
-<?php require 'views/patials/footer.php';?>
+    <?php require base_path('partials/footer.php');?>
+
+
+

@@ -1,16 +1,10 @@
 <?php
-
-
-
-$config = require 'config.php';
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+$config = require base_path('config.php');
 $db = new Database($config['database']);
+$tracks = $db->query('select * from artistes')->fetchAll();
 
-$heading = 'My tracks'; 
-
-$tracks = $db->query('select * from tracks where user_id = 1;')->get();
-
-
-
-require "views/tracks.view.php";
-
+view('tracks/index.view.php', [
+    'heading' => 'My Tracks'
+]);
