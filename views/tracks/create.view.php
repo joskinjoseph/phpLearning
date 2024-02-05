@@ -1,26 +1,89 @@
-<?php require base_path('partials/head.php');?> 
-<?php require base_path('partials/nav.php');?>
-<?php require base_path('partials/header.php');?>
+<?php require base_path('views/partials/head.php') ?>
+<?php require base_path('views/partials/nav.php') ?>
+<?php require base_path('views/partials/header.php'); ?>
 
-   <p>Create New Track</p>
-   <form method="post" style="background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 300px;">
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
 
-        <label for="music" style="display: block; margin-bottom: 8px; font-weight: bold;">Track</label>
+    .container {
+        max-width: 400px;
+        margin: 20px auto;
+    }
+
+    form {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+        font-size: 28px;
+        color: #3498db;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #555;
+    }
+
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    }
+
+    button {
+        background-color: #3498db;
+        color: #fff;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #1d6fa5;
+    }
+
+    .error-message {
+        color: #e74c3c;
+        margin-top: 8px;
+    }
+</style>
+
+<div class="container">
+    <p>Create New Track</p>
+    <form method="post" action="/tracks">
+        <label for="music">Track</label>
         <textarea
-                type="text"
-                name="music"
-                style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;"
-                placeholder="Enter a Track" 
-                ><?= $_POST['music'] ?? ''?></textarea>
-          <?php if (isset($errors['music'])): ?>
-        <p><?=$errors['music'];?></p>
-        <?php endif;?>
-        <button type="submit" style="background-color: #cca8e9; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;" onmouseover="this.style.backgroundColor='#45a049'" onmouseout="this.style.backgroundColor='#4caf50'">Submit</button>
+            type="text"
+            name="music"
+            placeholder="Enter a Track"><?= $_POST['music'] ?? ''?></textarea>
+
+        <?php if (isset($errors['music'])): ?>
+            <p class="error-message"><?= $errors['music']; ?></p>
+        <?php endif; ?>
+
+        <button type="submit">Submit</button>
     </form>
+</div>
 
-
-
-    <?php require base_path('partials/footer.php');?>
-
-
-
+<?php require base_path('views/partials/footer.php'); ?>

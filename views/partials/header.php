@@ -1,3 +1,3 @@
 <header>
-        <?= $heading; ?>
+       Hello,   <?=$_SESSION['name'] ?? 'Guest'; ?>
     </header>

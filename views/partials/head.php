@@ -55,5 +55,18 @@
 li:hover {
     background-color: #e2e6ea; /* Change background color on hover */
 }
+.register-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px; /* Adjust padding as needed */
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .register-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
     </style>
 <body>

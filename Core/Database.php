@@ -1,7 +1,10 @@
 <?php
+namespace Core;
+use PDO;
 class Database
 {
     public $connection;
+    public $statement;
     public function __construct($config, $username = "oluwadamilare", $password = "12345@Oluwadamilare")
     {
         $dsn = "mysql:" . http_build_query($config, '', ';'); // "mysql:host=localhost;port=3306;dname=myproject;charset=utf8mb4"
@@ -16,5 +19,19 @@ class Database
         $statement->execute($params);
         return $statement;
     }
+    public function get()
+    {
+        return $this->statement->fetchAll();
+    }
 
+    public function find()
+    {
+        return $this->statement->fetch();
+    }
+
+    public function findOrFail()
+    {
+        $result = $this->find();
+
+}
 }
